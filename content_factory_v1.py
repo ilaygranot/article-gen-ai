@@ -183,7 +183,7 @@ The Content Factory tool offers a user-friendly interface through Streamlit, all
     with st.sidebar:
         st.header("Settings")
 
-        api_key = st.text_input("API Key:", value="")
+        api_key = st.text_input("API Key:", value="sk-", type="password")
         uploaded_file = st.file_uploader("CSV File:", type=["csv"])
 
         domain = st.text_input("Domain Name:", value="")
