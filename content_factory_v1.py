@@ -143,11 +143,42 @@ def save_article_as_docx(filename, title, definition, content):
     doc.save(filename)
 
 def main():
-    st.set_page_config(page_title="Article Generator", page_icon=None, layout='wide', initial_sidebar_state='expanded')
+    st.set_page_config(page_title="Article Generator", page_icon=None, layout='centered', initial_sidebar_state='expanded')
 
-    st.title("Article Generator")
+    st.title("AI Content Factory")
     st.write("A powerful AI-driven content generation tool for creating high-quality articles at scale.")
+    
+    # Add an expander to provide a detailed overview, benefits, and step-by-step instructions
+    with st.expander("About Content Factory"):
+        st.markdown("""
+Content Factory is an advanced content generation tool that leverages the capabilities of the OpenAI GPT-4 language model to create high-quality, informative articles at scale. Designed for a wide range of topics, this tool can be easily customized to cater to your specific content requirements.
 
+**Overview:**
+
+The Content Factory tool offers a user-friendly interface through Streamlit, allowing users to:
+
+1. Configure the model settings
+2. Input the required information, such as API key, domain, and CSV file containing the topics and outlines
+3. Generate articles, including definitions and related links
+4. Save the generated content in a convenient `.docx` format and a CSV file
+5. Download the generated files as a `.zip` package for easy usage
+
+**Benefits:**
+
+- Efficient content generation at scale
+- High-quality, AI-generated content tailored to your specific requirements
+- User-friendly interface for seamless interaction
+- Easy customization to fit a wide range of content generation needs
+
+**Step-by-step guide:**
+
+1. Run the Content Factory app locally or deploy it on a cloud service
+2. Enter your API key, domain, and upload a CSV file containing your topics and outlines
+3. Adjust the settings as needed, including model, temperature, max tokens, and other options
+4. Click the "Generate Articles" button
+5. Download the generated `.zip` file containing the articles in `.docx` format and a CSV file with the generated content
+6. Review, edit, and utilize the generated content as needed
+""")
 
     with st.sidebar:
         st.header("Settings")
