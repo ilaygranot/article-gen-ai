@@ -146,7 +146,8 @@ def main():
     st.set_page_config(page_title="Article Generator", page_icon=None, layout='wide', initial_sidebar_state='expanded')
 
     st.title("Article Generator")
-    st.write("This app generates articles based on prompts loaded from a CSV file. Provide the necessary details and click the button to generate articles.")
+    st.write("A powerful AI-driven content generation tool for creating high-quality articles at scale.")
+
 
     with st.sidebar:
         st.header("Settings")
