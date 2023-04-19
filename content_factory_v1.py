@@ -184,15 +184,15 @@ The Content Factory tool offers a user-friendly interface through Streamlit, all
         st.header("Settings")
 
         api_key = st.text_input("API Key:", value="", type="password")
-        uploaded_file = st.file_uploader("CSV File:", type=["csv"])
+        uploaded_file = st.file_uploader("Upload a CSV file", type=["csv"])
 
-        domain = st.text_input("Domain Name:", value="")
+        domain = st.text_input("Domain Name:", value="https://www.your-domain.com")
 
         # Model and settings
         model = st.selectbox("Model:", ["gpt-3.5-turbo", "gpt-4"])
         top_p = st.slider("Top P:", min_value=0.0, max_value=1.0, value=1.0, step=0.1)
         temperature = st.slider("Temperature:", min_value=0.0, max_value=2.0, value=0.7, step=0.1)
-        max_tokens = st.slider("Max Tokens:", min_value=1, max_value=4096, value=2048, step=1)
+        max_tokens = st.slider("Max Tokens:", min_value=1, max_value=8000, value=2048, step=1)
         presence_penalty = st.slider("Presence Penalty:", min_value=0.0, max_value=2.0, value=0.0, step=0.1)
         frequency_penalty = st.slider("Frequency Penalty:", min_value=0.0, max_value=2.0, value=0.0, step=0.1)
 
