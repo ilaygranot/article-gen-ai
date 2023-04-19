@@ -143,19 +143,6 @@ def save_article_as_docx(filename, title, definition, content):
     doc.save(filename)
 
 def main():
-    
-    page_bg_img = '''
-
-    <style>
-    background-image: url("https://images.unsplash.com/photo-1542281286-9e0a16bb7366");
-    background-size: cover;
-    </style>
-
-    '''
-    st.markdown(page_bg_img, unsafe_allow_html=True)    
-    
-    
-    
     st.set_page_config(page_title="Article Generator", page_icon=None, layout='centered', initial_sidebar_state='expanded')
 
     st.title("AI Content Factory")
