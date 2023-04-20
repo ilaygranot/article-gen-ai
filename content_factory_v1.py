@@ -45,9 +45,13 @@ Make sure to use clear, concise language and provide practical advice, examples,
     ]
 
     completion = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        max_tokens=3200,
-        messages=messages
+        model= model,
+        max_tokens = max_tokens,
+        messages = messages,
+        temperature = temperature, 
+        presence_penalty = presence_penalty,
+        frequency_penalty = frequency_penalty
+
     )
 
     response = completion.choices[0].message.content.strip()
@@ -64,7 +68,7 @@ def generate_related_links(df, current_topic):
 
     return related_links.to_dict('records')
 
-@st.cache_data(ttl=86400)
+
 def generate_article(api_key, topic, sections, related_links, definition_only=False):
     if definition_only:
         prompt = (
