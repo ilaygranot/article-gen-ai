@@ -45,13 +45,9 @@ Make sure to use clear, concise language and provide practical advice, examples,
     ]
 
     completion = openai.ChatCompletion.create(
-        model= model,
-        max_tokens = max_tokens,
-        messages = messages,
-        temperature = temperature, 
-        presence_penalty = presence_penalty,
-        frequency_penalty = frequency_penalty
-
+        model="gpt-3.5-turbo",
+        max_tokens=3200,
+        messages=messages
     )
 
     response = completion.choices[0].message.content.strip()
@@ -180,16 +176,6 @@ Using the Content Factory is a breeze with this simple step-by-step guide:
 6. Review, edit, and utilize the generated content as needed.
 
 """)
-    with st.expander("Understanding the Section Start Column Setting"):
-        st.markdown("""
-The `Section Start Column` setting allows you to specify the column number in your CSV file where the article outline begins. In Python, we start counting from 0, which means that the first column (column A) in the CSV is considered column 0, the second column (column B) is considered column 1, and so on.
-
-For example, if your article outline starts in the 8th column (column H), you should input `7` in the setting, since we begin counting from 0 (column A is 0, column B is 1, ..., column H is 7).
-
-Keep in mind that the last part of your CSV file should be the article outline. This means that no matter which CSV you upload, the outline should be in the final columns of the file, whether it's column 1 or column 50. Ensure that the column immediately following the last section in the article is empty, so the last section of the article should also be the last column in the CSV.
-
-By adjusting the `Section Start Column` setting, you can easily control where the article outline starts in the CSV, making it easier to work with different file structures.
-""")
         
     with st.expander("GPT-3.5 Turbo vs. GPT-4 - A Comparison"):
         st.markdown("""
@@ -259,25 +245,19 @@ Hello! I'm Ilay, a Technical SEO at Wix who loves to cook 🍝 and scale SEO tas
         topics = df["topic"].tolist()
         h1_keywords = df["keyword / h1"].tolist()
         sections = df.iloc[:, section_start_col-1:].values.tolist()
-        
-        progress_text = "Generating articles. Please wait..."
-        my_bar = st.progress(0, text=progress_text)
-        total_items = len(topics) * 2
 
         definitions = []
         articles = []
-        for idx, (topic, sec) in enumerate(zip(topics, sections)):
-                related_links = generate_related_links(df, topic)
+        for topic, sec in zip(topics, sections):
+            related_links = generate_related_links(df, topic)
 
-                definition = generate_article(api_key, topic, sec, related_links, definition_only=True)
-                definitions.append(definition)
-                time.sleep(7)
-                my_bar.progress((((idx + 1) * 2 - 1) / total_items * 100) / 100, text=progress_text)
+            definition = generate_article(api_key, topic, sec, related_links, definition_only=True)
+            definitions.append(definition)
+            time.sleep(7)
 
-                article = generate_article(api_key, topic, sec, related_links, definition_only=False)
-                articles.append(article)
-                time.sleep(7)
-                my_bar.progress((((idx + 1) * 2) / total_items * 100) / 100, text=progress_text)
+            article = generate_article(api_key, topic, sec, related_links, definition_only=False)
+            articles.append(article)
+            time.sleep(7)
 
         df["definition"] = definitions
         df["article"] = articles
