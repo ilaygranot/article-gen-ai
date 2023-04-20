@@ -38,6 +38,7 @@ Make sure to use clear, concise language and provide practical advice, examples,
 """ )
     
     print(f"Generated prompt:\n{prompt}\n")
+    st.write(f"Generated prompt:\n{prompt}\n")
 
     messages = [
         {"role": "system", "content": system_message},
