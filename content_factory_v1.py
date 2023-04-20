@@ -245,7 +245,7 @@ Hello! I'm Ilay, a Technical SEO at Wix who loves to cook 🍝 and scale SEO tas
         section_start_col = st.sidebar.number_input("Section Start Column (default is 7)", min_value=1, value=7, step=1)
 
     if st.button("Generate Articles"):
-        if not api_key or not domain or not uploaded_file:
+        if not api_key or not uploaded_file:
             st.error("Please provide all required inputs (API Key, Domain Name, and CSV File).")
             return
 
