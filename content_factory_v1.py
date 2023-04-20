@@ -209,7 +209,7 @@ By combining the power of Wix and Content Factory, you can streamline the conten
 
     with st.expander("About Me - Ilay, the Technical SEO Enthusiast"):
         st.markdown("""
-Hello! I'm Ilay, a Technical SEO at Wix who loves to cook and scale SEO tasks. Passionate about optimizing content for search engines, I've created Content Factory to help users generate high-quality, AI-generated content effortlessly. I hope you enjoy using this tool as much as I've enjoyed creating it!
+Hello! I'm Ilay, a Technical SEO at Wix who loves to cook 🍝 and scale SEO tasks ⏳. Passionate about optimizing content for search engines, I've created Content Factory to help users generate high-quality, AI-generated content effortlessly. I hope you enjoy using this tool as much as I've enjoyed creating it!
 
 """)
         
