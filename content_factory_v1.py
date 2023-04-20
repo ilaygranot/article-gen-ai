@@ -268,12 +268,12 @@ Hello! I'm Ilay, a Technical SEO at Wix who loves to cook 🍝 and scale SEO tas
                 definition = generate_article(api_key, topic, sec, related_links, definition_only=True)
                 definitions.append(definition)
                 time.sleep(7)
-                my_bar.progress(((idx + 1) * 2 - 1) / total_items * 100, text=progress_text)
+                my_bar.progress((((idx + 1) * 2 - 1) / total_items * 100) / 100, text=progress_text)
 
                 article = generate_article(api_key, topic, sec, related_links, definition_only=False)
                 articles.append(article)
                 time.sleep(7)
-                my_bar.progress(((idx + 1) * 2) / total_items * 100, text=progress_text)
+                my_bar.progress((((idx + 1) * 2) / total_items * 100) / 100, text=progress_text)
 
         df["definition"] = definitions
         df["article"] = articles
