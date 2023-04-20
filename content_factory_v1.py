@@ -184,7 +184,7 @@ The Content Factory tool offers a user-friendly interface through Streamlit, all
         st.header("Settings")
 
         api_key = st.text_input("API Key:", value="", type="password")
-        uploaded_file = st.file_uploader("Upload a CSV file", type=["csv"])
+        uploaded_file = st.file_uploader("Upload a CSV file:", type=["csv"])
 
         domain = st.text_input("URL Path:", value="")
 
