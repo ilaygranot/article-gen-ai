@@ -143,7 +143,7 @@ def save_article_as_docx(filename, title, definition, content):
     doc.save(filename)
 
 def main():
-    st.set_page_config(page_title="Article Generator", page_icon=None, layout='centered', initial_sidebar_state='expanded')
+    st.set_page_config(page_title="AI Content Factory", page_icon=None, layout='centered', initial_sidebar_state='expanded')
 
     st.title("AI Content Factory")
     st.write("A powerful AI-driven content generation tool for creating high-quality articles at scale.")
