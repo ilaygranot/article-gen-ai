@@ -149,37 +149,65 @@ def main():
     st.write("A powerful AI-driven content generation tool for creating high-quality articles at scale.")
     
     # Add an expander to provide a detailed overview, benefits, and step-by-step instructions
-    with st.expander("About Content Factory"):
+        
+    with st.expander("About this Tool - Content Factory at Your Fingertips"):
         st.markdown("""
-Content Factory is an advanced content generation tool that leverages the capabilities of the OpenAI GPT-4 language model to create high-quality, informative articles at scale. Designed for a wide range of topics, this tool can be easily customized to cater to your specific content requirements.
+Welcome to Content Factory, a powerful content generation tool harnessing the potential of OpenAI's GPT-4 language model. Designed to cater to a diverse array of topics, this tool offers high-quality, informative articles tailored to your specific needs.
+""")
+    
+    with st.expander("Advantages of Content Factory - Unleash the Power of AI"):
+        st.markdown("""
+The Content Factory boasts numerous benefits for users seeking an efficient, seamless content generation experience:
+1. **Tailored content**: By providing specific prompts for each section, the tool generates content that aligns with your unique requirements.
+2. **Internal linking**: Automatically generates related links to incorporate within the article, promoting improved SEO.
+3. **Scalable**: Effortlessly generates large volumes of content in a timely manner.
+4. **User-friendly**: The intuitive interface ensures a smooth, hassle-free experience.
+""")
+    
+    with st.expander("How to Use Content Factory - A Step-by-Step Guide"):
+        st.markdown("""
+Using the Content Factory is a breeze with this simple step-by-step guide:
+1. Run the Content Factory app locally or deploy it on a cloud service.
+2. Enter your API key, domain, and upload a CSV file containing your topics and outlines.
+3. Adjust the settings as needed, including model, temperature, max tokens, and other options.
+4. Click the "Generate Articles" button.
+5. Download the generated `.zip` file containing the articles in `.docx` format and a CSV file with the generated content.
+6. Review, edit, and utilize the generated content as needed.
+""")
+        
+    with st.expander("GPT-3.5 Turbo vs. GPT-4 - A Comparison"):
+        st.markdown("""
+GPT-3.5 Turbo and GPT-4 are both powerful language models, but they differ in terms of speed, cost, and quality of results:
 
-**Overview:**
+- **Speed**: GPT-3.5 Turbo is faster than GPT-4, generating a 1000-word article in about 50 seconds, while GPT-4 takes around 2 minutes for the same article. This provides users with quicker results when using GPT-3.5 Turbo.
 
-The Content Factory tool offers a user-friendly interface through Streamlit, allowing users to:
+- **Cost**: GPT-4 is more expensive than GPT-3.5 Turbo, and while it may not be as fast, its increased capabilities could justify the higher price for users seeking top-notch content generation.
 
-1. Configure the model settings
-2. Input the required information, such as API key, domain, and CSV file containing the topics and outlines
-3. Generate articles, including definitions and related links
-4. Save the generated content in a convenient `.docx` format and a CSV file
-5. Download the generated files as a `.zip` package for easy usage
-
-**Benefits:**
-
-- Efficient content generation at scale
-- High-quality, AI-generated content tailored to your specific requirements
-- User-friendly interface for seamless interaction
-- Easy customization to fit a wide range of content generation needs
-
-**Step-by-step guide:**
-
-1. Run the Content Factory app locally or deploy it on a cloud service
-2. Enter your API key, domain, and upload a CSV file containing your topics and outlines
-3. Adjust the settings as needed, including model, temperature, max tokens, and other options
-4. Click the "Generate Articles" button
-5. Download the generated `.zip` file containing the articles in `.docx` format and a CSV file with the generated content
-6. Review, edit, and utilize the generated content as needed
+- **Quality**: GPT-4 delivers better-quality results compared to GPT-3.5 Turbo, which can be an important factor for users who prioritize high-quality content.
 """)
 
+    with st.expander("Scaling Content Publishing with Wix - A Comprehensive Approach"):
+        st.markdown("""
+Scaling content publishing has never been easier, thanks to Wix's robust features and seamless integration with Content Factory. Follow these steps to create a content-rich website:
+
+1. **Create a website with Wix**: Sign up for a Wix account and choose from a variety of stunning templates to build a visually appealing and user-friendly website.
+
+2. **Use Wix's dynamic pages**: Take advantage of Wix's dynamic pages feature to create data-driven, customizable pages that automatically populate with content based on your data.
+
+3. **Upload the CSV file**: Extract the CSV file from the Content Factory-generated `.zip` package and upload it to your Wix site. This file contains all the necessary information, such as topics, definitions, and article content.
+
+4. **Design page layout**: Customize the layout of your dynamic pages to ensure a consistent, visually appealing design that matches your brand identity.
+
+5. **Render the HTML & Schema markup with Velo**: Utilize Velo, Wix's powerful web development platform, to render the HTML and Schema markup generated by Content Factory. This will ensure your content is displayed correctly and optimized for search engines.
+
+By combining the power of Wix and Content Factory, you can streamline the content publishing process and scale your content efforts with ease.
+""")
+
+    with st.expander("About Me - Ilay, the Technical SEO Enthusiast"):
+        st.markdown("""
+Hello! I'm Ilay, a Technical SEO at Wix who loves to cook and scale SEO tasks. Passionate about optimizing content for search engines, I've created Content Factory to help users generate high-quality, AI-generated content effortlessly. I hope you enjoy using this tool as much as I've enjoyed creating it!
+""")
+        
     with st.sidebar:
         st.header("Settings")
 
