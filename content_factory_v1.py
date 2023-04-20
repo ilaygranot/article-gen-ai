@@ -100,11 +100,15 @@ class MyHTMLParser(HTMLParser):
         self.text = []
         self.current_tag = None
         self.parent_tag = None
+        self.current_href = None
 
     def handle_starttag(self, tag, attrs):
         self.current_tag = tag
         if tag in ["ul", "ol"]:
             self.parent_tag = tag
+        if tag == "a":
+            attrs_dict = dict(attrs)
+            self.current_href = attrs_dict.get("href")
 
     def handle_endtag(self, tag):
         if tag == self.parent_tag:
@@ -116,6 +120,9 @@ class MyHTMLParser(HTMLParser):
             self.text.append({"type": self.current_tag, "content": data.strip()})
         elif self.current_tag == "li":
             self.text.append({"type": self.current_tag, "content": data.strip(), "parent": self.parent_tag})
+        elif self.current_tag == "a":
+            self.text.append({"type": self.current_tag, "content": data.strip(), "href": self.current_href})
+
 
 def save_article_as_docx(filename, title, definition, content):
     # Parse the HTML content
@@ -138,6 +145,10 @@ def save_article_as_docx(filename, title, definition, content):
         elif item["type"] == "li":
             style = "ListBullet" if item["parent"] == "ul" else "ListNumber"
             doc.add_paragraph(item["content"], style=style)
+        elif item["type"] == "a":
+            p = doc.add_paragraph()
+            r = p.add_run(item["content"])
+            r.hyperlink = item["href"]
 
     # Save the document to a file
     doc.save(filename)
