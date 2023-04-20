@@ -177,7 +177,7 @@ Using the Content Factory is a breeze with this simple step-by-step guide:
 
 """)
      with st.expander("Understanding the Section Start Column Setting"):
-        st.markdown("""
+         st.markdown("""
 The `Section Start Column` setting allows you to specify the column number in your CSV file where the article outline begins. In Python, we start counting from 0, which means that the first column (column A) in the CSV is considered column 0, the second column (column B) is considered column 1, and so on.
 
 For example, if your article outline starts in the 8th column (column H), you should input `7` in the setting, since we begin counting from 0 (column A is 0, column B is 1, ..., column H is 7).
