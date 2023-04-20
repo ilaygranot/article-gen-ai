@@ -255,19 +255,25 @@ Hello! I'm Ilay, a Technical SEO at Wix who loves to cook 🍝 and scale SEO tas
         topics = df["topic"].tolist()
         h1_keywords = df["keyword / h1"].tolist()
         sections = df.iloc[:, section_start_col-1:].values.tolist()
+        
+        progress_text = "Generating articles. Please wait..."
+        my_bar = st.progress(0, text=progress_text)
+        total_items = len(topics) * 2
 
         definitions = []
         articles = []
-        for topic, sec in zip(topics, sections):
-            related_links = generate_related_links(df, topic)
+        for idx, (topic, sec) in enumerate(zip(topics, sections)):
+                related_links = generate_related_links(df, topic)
 
-            definition = generate_article(api_key, topic, sec, related_links, definition_only=True)
-            definitions.append(definition)
-            time.sleep(7)
+                definition = generate_article(api_key, topic, sec, related_links, definition_only=True)
+                definitions.append(definition)
+                time.sleep(7)
+                my_bar.progress(((idx + 1) * 2 - 1) / total_items * 100, text=progress_text)
 
-            article = generate_article(api_key, topic, sec, related_links, definition_only=False)
-            articles.append(article)
-            time.sleep(7)
+                article = generate_article(api_key, topic, sec, related_links, definition_only=False)
+                articles.append(article)
+                time.sleep(7)
+                my_bar.progress(((idx + 1) * 2) / total_items * 100, text=progress_text)
 
         df["definition"] = definitions
         df["article"] = articles
