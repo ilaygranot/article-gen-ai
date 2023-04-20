@@ -190,11 +190,11 @@ The Content Factory tool offers a user-friendly interface through Streamlit, all
 
         # Model and settings
         model = st.selectbox("Model:", ["gpt-3.5-turbo", "gpt-4"])
-        top_p = st.slider("Top P:", min_value=0.0, max_value=1.0, value=1.0, step=0.1)
+        # top_p = st.slider("Top P:", min_value=0.0, max_value=1.0, value=1.0, step=0.1)
         temperature = st.slider("Temperature:", min_value=0.0, max_value=2.0, value=0.7, step=0.1)
         max_tokens = st.slider("Max Tokens:", min_value=1, max_value=8000, value=2048, step=1)
-        presence_penalty = st.slider("Presence Penalty:", min_value=0.0, max_value=2.0, value=0.0, step=0.1)
-        frequency_penalty = st.slider("Frequency Penalty:", min_value=0.0, max_value=2.0, value=0.0, step=0.1)
+        presence_penalty = st.slider("Presence Penalty:", min_value=-2.0, max_value=2.0, value=0.2, step=0.1)
+        frequency_penalty = st.slider("Frequency Penalty:", min_value=-2.0, max_value=2.0, value=0.2, step=0.1)
 
     if st.button("Generate Articles"):
         if not api_key or not domain or not uploaded_file:
