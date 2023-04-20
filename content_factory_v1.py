@@ -65,7 +65,7 @@ def generate_related_links(df, current_topic):
     return related_links.to_dict('records')
 
 
-@st.cache(show_spinner=False, ttl=86400)
+st.cache_data(show_spinner=False, ttl=86400)
 def generate_article(api_key, topic, sections, related_links, definition_only=False):
     if definition_only:
         prompt = (
