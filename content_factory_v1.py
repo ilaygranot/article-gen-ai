@@ -10,12 +10,6 @@ from docx import Document
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 from html.parser import HTMLParser
 
-st.cache_data(show_spinner=False, ttl=86400)
-def cache_uploaded_file(uploaded_file_data):
-    if uploaded_file_data:
-        return pd.read_csv(io.StringIO(uploaded_file_data.decode('utf-8')))
-    return None
-
 def create_url_path(keyword):
     url_path = keyword.lower()
     url_path = re.sub(r"[^a-z0-9\s]+", "", url_path)  # Remove non-alphanumeric and non-space characters
@@ -69,7 +63,6 @@ def generate_related_links(df, current_topic):
     related_links = related_links[related_links['full path'] != current_full_path]
 
     return related_links.to_dict('records')
-
 
 
 def generate_article(api_key, topic, sections, related_links, definition_only=False):
@@ -235,10 +228,6 @@ Hello! I'm Ilay, a Technical SEO at Wix who loves to cook 🍝 and scale SEO tas
 
         api_key = st.text_input("API Key:", value="", type="password")
         uploaded_file = st.file_uploader("Upload a CSV file:", type=["csv"])
-        if uploaded_file:
-            uploaded_file_data = uploaded_file.getvalue()
-            df = cache_uploaded_file(uploaded_file_data)
-            st.write(df)
 
         domain = st.text_input("URL Path:", value="")
 
