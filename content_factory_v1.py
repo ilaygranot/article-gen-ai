@@ -176,6 +176,16 @@ Using the Content Factory is a breeze with this simple step-by-step guide:
 6. Review, edit, and utilize the generated content as needed.
 
 """)
+     with st.expander("Understanding the Section Start Column Setting"):
+        st.markdown("""
+The `Section Start Column` setting allows you to specify the column number in your CSV file where the article outline begins. In Python, we start counting from 0, which means that the first column (column A) in the CSV is considered column 0, the second column (column B) is considered column 1, and so on.
+
+For example, if your article outline starts in the 8th column (column H), you should input `7` in the setting, since we begin counting from 0 (column A is 0, column B is 1, ..., column H is 7).
+
+Keep in mind that the last part of your CSV file should be the article outline. This means that no matter which CSV you upload, the outline should be in the final columns of the file, whether it's column 1 or column 50. Ensure that the column immediately following the last section in the article is empty, so the last section of the article should also be the last column in the CSV.
+
+By adjusting the `Section Start Column` setting, you can easily control where the article outline starts in the CSV, making it easier to work with different file structures.
+""")
         
     with st.expander("GPT-3.5 Turbo vs. GPT-4 - A Comparison"):
         st.markdown("""
