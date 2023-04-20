@@ -229,6 +229,9 @@ Hello! I'm Ilay, a Technical SEO at Wix who loves to cook 🍝 and scale SEO tas
         presence_penalty = st.slider("Presence Penalty:", min_value=-2.0, max_value=2.0, value=0.2, step=0.1)
         frequency_penalty = st.slider("Frequency Penalty:", min_value=-2.0, max_value=2.0, value=0.2, step=0.1)
 
+        # Add the input field for the section start column
+        section_start_col = st.sidebar.number_input("Section Start Column (default is 7)", min_value=1, value=7, step=1)
+
     if st.button("Generate Articles"):
         if not api_key or not domain or not uploaded_file:
             st.error("Please provide all required inputs (API Key, Domain Name, and CSV File).")
@@ -241,7 +244,7 @@ Hello! I'm Ilay, a Technical SEO at Wix who loves to cook 🍝 and scale SEO tas
 
         topics = df["topic"].tolist()
         h1_keywords = df["keyword / h1"].tolist()
-        sections = df.iloc[:, 7:].values.tolist()
+        sections = df.iloc[:, section_start_col-1:].values.tolist()
 
         definitions = []
         articles = []
