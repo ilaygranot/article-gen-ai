@@ -186,7 +186,7 @@ The Content Factory tool offers a user-friendly interface through Streamlit, all
         api_key = st.text_input("API Key:", value="", type="password")
         uploaded_file = st.file_uploader("Upload a CSV file", type=["csv"])
 
-        domain = st.text_input("Domain Name:", value="Insert your path")
+        domain = st.text_input("URL Path:", value="")
 
         # Model and settings
         model = st.selectbox("Model:", ["gpt-3.5-turbo", "gpt-4"])
